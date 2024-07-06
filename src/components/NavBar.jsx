@@ -22,6 +22,7 @@ export const NavBar = () => {
     const handleDarkMode = () => {
       setIsDay(!isDay)
       setTheme(theme === 'light' ? 'dark' : 'light')
+      
     }
 
      useEffect(() => {
@@ -57,7 +58,7 @@ export const NavBar = () => {
             width={40}
             height={40}
           />
-          <p className="font-bold dark:text-jblue px-1">JErick<span className='dark:text-jpurple'>Dev</span></p>
+          <p className="font-bold dark:text-jblue px-1">JErick<span className='text-foreground dark:text-jpurple'>Dev</span></p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -69,7 +70,7 @@ export const NavBar = () => {
             width={40}
             height={40}
           />
-          <p className="font-bold text-jblue px-1">JErick<span className='text-jpurple'>Dev</span></p>
+          <p className="font-bold text-jblue px-1">JErick<span className='text-foreground dark:text-jpurple'>Dev</span></p>
         </NavbarBrand>
         <NavbarItem isActive>
           <Link className="text-foreground dark:text-jblue" href="#">
@@ -93,15 +94,21 @@ export const NavBar = () => {
           <Button 
             isIconOnly
             aria-label={isDay ? 'light': 'dark'} 
-            className="bg-jpurple dark:bg-jyellow"
+            className='bg-jpurple dark:bg-jyellow transition-shadow ease-in delay-150'
             radius="large"
             onClick={handleDarkMode}
           >
             {
               isDay ? (
-                <SunIcon className='text-background' width={30}/>
+                <SunIcon 
+                  width={30}
+                  className="text-background"
+                />
               ) : (
-                <MoonIcon className='dark:text-background' width={30}/>
+                <MoonIcon 
+                  width={30}
+                  className="text-jsubtext"
+                />
               )
             }
           </Button>

@@ -23,7 +23,8 @@ export default {
 						jpurple: "#6e53e5",
 						jsubtext: "#cdd6f4",
 						sapphire: "#74c7ec",
-						green: '#a6e3a1'
+						green: '#a6e3a1',
+						overlay1: '#7f849c',
 					}
 				},
 				dark: {
@@ -34,7 +35,8 @@ export default {
 						jblue: "#4385f5",
 						jpurple: "#6e53e5",
 						jyellow: "#F9E2AF",
-						text: '#cdd6f4'
+						text: '#cdd6f4',
+						surface1: '#45475a',
 					}
 				}
 			}
