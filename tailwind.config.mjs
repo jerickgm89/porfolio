@@ -20,15 +20,21 @@ export default {
 					colors: {
 						background: "#B4BEFE",
 						foreground: "#1E1E2E",
+						jpurple: "#6e53e5",
+						jsubtext: "#cdd6f4",
+						sapphire: "#74c7ec",
+						green: '#a6e3a1'
 					}
 				},
 				dark: {
 					colors: {
 						background: "#1E1E2E",
 						foreground: "#b8c0e0",
+						banner: '#363A4F',
 						jblue: "#4385f5",
 						jpurple: "#6e53e5",
-						jyellow: "#F9E2AF"
+						jyellow: "#F9E2AF",
+						text: '#cdd6f4'
 					}
 				}
 			}

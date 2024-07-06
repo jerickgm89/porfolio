@@ -72,17 +72,17 @@ export const NavBar = () => {
           <p className="font-bold text-jblue px-1">JErick<span className='text-jpurple'>Dev</span></p>
         </NavbarBrand>
         <NavbarItem isActive>
-          <Link color="jblue" href="#">
+          <Link className="text-foreground dark:text-jblue" href="#">
             Proyectos
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color='jblue' href="#">
+          <Link color='jblue'className="text-foreground dark:text-jblue" href="#">
             Blog
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="jblue" href="#">
+          <Link color="jblue"className="text-foreground dark:text-jblue" href="https://github.com/jerickgm89">
             GitHub
           </Link>
         </NavbarItem>
@@ -93,7 +93,7 @@ export const NavBar = () => {
           <Button 
             isIconOnly
             aria-label={isDay ? 'light': 'dark'} 
-            className={isDay ? 'bg-jyellow' : 'bg-jpurple'} 
+            className="bg-jpurple dark:bg-jyellow"
             radius="large"
             onClick={handleDarkMode}
           >
@@ -101,10 +101,9 @@ export const NavBar = () => {
               isDay ? (
                 <SunIcon className='text-background' width={30}/>
               ) : (
-                <MoonIcon className='text-background' width={30}/>
+                <MoonIcon className='dark:text-background' width={30}/>
               )
             }
-            
           </Button>
         </NavbarItem>
       </NavbarContent>

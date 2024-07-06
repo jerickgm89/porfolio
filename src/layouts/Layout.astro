@@ -9,7 +9,7 @@ import {NavBar} from '../components/NavBar';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -18,7 +18,7 @@ import {NavBar} from '../components/NavBar';
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="dark">
+	<body>
 		<NavBar client:load />
 		<slot />
 	</body>
