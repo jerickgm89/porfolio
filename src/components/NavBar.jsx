@@ -12,6 +12,7 @@ import {
   Image,
 } from "@nextui-org/react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid"
+import { Icon } from '@iconify/react'
 
 
 export const NavBar = () => {
@@ -35,15 +36,16 @@ export const NavBar = () => {
     }, [theme]);
     
     const menuItems = [
-        "Proyectos",
-        "Blog",
-        "GitHub",
+        {text: "Proyectos", href: "#"},
+        {text:"Blog", href: "#"},
+        {text: "GitHub", href: "https://github.com/jerickgm89"},
     ]
   return (
     <>
     <Navbar
       isBordered
       isMenuOpen={isMenuOpen}
+      className='transition-all ease-in-out'
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="sm:hidden" justify="start">
@@ -62,7 +64,7 @@ export const NavBar = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-10" justify="center">
+      <NavbarContent className="hidden sm:flex gap-10 transition-all ease-in-out" justify="center">
         <NavbarBrand>
           <Image
             src="./logoJErickDev.png"
@@ -72,19 +74,26 @@ export const NavBar = () => {
           />
           <p className="font-bold text-jblue px-1">JErick<span className='text-foreground dark:text-jpurple'>Dev</span></p>
         </NavbarBrand>
-        <NavbarItem isActive>
-          <Link className="text-foreground dark:text-jblue" href="#">
+        <NavbarItem>
+          <Link className="text-lg text-foreground font-bold dark:text-jblue hover:underline underline-offset-4" href="#">
             Proyectos
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color='jblue'className="text-foreground dark:text-jblue" href="#">
+          <Link color='jblue'className="text-lg text-foreground font-bold dark:text-jblue hover:underline underline-offset-4" href="#">
             Blog
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="jblue"className="text-foreground dark:text-jblue" href="https://github.com/jerickgm89">
-            GitHub
+          <Link href="https://github.com/jerickgm89/porfolio">
+            <Button
+              disableRipple
+              className="text-foreground text-lg font-bold dark:text-jblue hover:underline underline-offset-4 p-0 bg-transparent data-[hover=true]:bg-transparent"
+              variant='light'
+              startContent={<Icon icon="akar-icons:github-fill" width={20} />}
+            >
+              C&oacute;digo
+            </Button>
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -94,7 +103,7 @@ export const NavBar = () => {
           <Button 
             isIconOnly
             aria-label={isDay ? 'light': 'dark'} 
-            className='bg-jpurple dark:bg-jyellow transition-shadow ease-in delay-150'
+            className='bg-jpurple dark:bg-jyellow'
             radius="large"
             onClick={handleDarkMode}
           >
@@ -102,12 +111,12 @@ export const NavBar = () => {
               isDay ? (
                 <SunIcon 
                   width={30}
-                  className="text-background"
+                  className="text-background animate__animated animate__fadeInUp"
                 />
               ) : (
                 <MoonIcon 
                   width={30}
-                  className="text-jsubtext"
+                  className="text-jsubtext animate__animated animate__fadeInDown"
                 />
               )
             }
@@ -117,13 +126,13 @@ export const NavBar = () => {
 
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.text}-${index}`}>
             <Link
-              className="w-full"
-              href="#"
+              className="text-foreground font-bold w-full"
+              href={item.href}
               size="lg"
             >
-              {item}
+              {item.text}
             </Link>
           </NavbarMenuItem>
         ))}
@@ -132,3 +141,5 @@ export const NavBar = () => {
     </>
   )
 }
+
+
