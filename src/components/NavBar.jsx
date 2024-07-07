@@ -71,16 +71,17 @@ export const NavBar = () => {
             alt="JErickDev"
             width={40}
             height={40}
+            
           />
-          <p className="font-bold text-jblue px-1">JErick<span className='text-foreground dark:text-jpurple'>Dev</span></p>
+          <p className="font-bold text-jblue px-1 text-lg">JErick<span className='text-jpurple font-bold'>Dev</span></p>
         </NavbarBrand>
         <NavbarItem>
-          <Link className="text-lg text-foreground font-bold dark:text-jblue hover:underline underline-offset-4" href="#">
+          <Link className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4" href="#">
             Proyectos
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color='jblue'className="text-lg text-foreground font-bold dark:text-jblue hover:underline underline-offset-4" href="#">
+          <Link color='jblue'className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4" href="#">
             Blog
           </Link>
         </NavbarItem>
@@ -88,7 +89,7 @@ export const NavBar = () => {
           <Link href="https://github.com/jerickgm89/porfolio">
             <Button
               disableRipple
-              className="text-foreground text-lg font-bold dark:text-jblue hover:underline underline-offset-4 p-0 bg-transparent data-[hover=true]:bg-transparent"
+              className="text-foreground text-lg font-medium dark:text-jblue hover:underline underline-offset-4 p-0 bg-transparent data-[hover=true]:bg-transparent"
               variant='light'
               startContent={<Icon icon="akar-icons:github-fill" width={20} />}
             >

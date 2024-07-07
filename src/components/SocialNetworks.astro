@@ -3,17 +3,32 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <div class="flex flex-col space-y-3">
-    <div class="flex">
-        <Icon name="mdi:github" size={25}/>
-        <p class="text-lg text-text mx-2">@jerickgm89</p>
-    </div>
-    <div class="flex">
-        <Icon name="mdi:linkedin" size={25}/>
-        <p class="text-lg text-text mx-2">@jerickdev</p>
-    </div>
-    <div class="flex">
-        <Icon name="mdi:instagram" size={25}/>
-        <p class="text-lg text-text mx-2">JErickDev
-        </p>
-    </div>
+    <!-- Github -->
+    <button class="flex items-center bg-transparent rounded">
+        <a href="https://github.com/jerickgm89" class="flex items-center bg-transparent rounded">
+            <div class="flex hover:bg-green dark:hover:bg-jpurple text-foreground font-semibold hover:border-transparent rounded py-2 px-3">
+                <Icon name="mdi:github" size={25}/>
+                <p class="text-lg text-text mx-2">@jerickgm89</p>
+            </div>
+        </a>
+    </button>
+    <!-- Linkedin -->
+    <button class="flex items-center bg-transparent rounded">
+        <a href="https://www.linkedin.com/in/jerickdev/" class="flex items-center bg-transparent rounded">
+            <div class="flex hover:bg-green dark:hover:bg-jpurple text-foreground font-semibold hover:border-transparent rounded py-2 px-3">
+                <Icon name="mdi:linkedin" size={25}/>
+                <p class="text-lg text-text mx-2">@jerickdev</p>
+            </div>
+        </a>
+    </button>
+    <!-- Instagram -->
+    <button class="flex items-center bg-transparent rounded">
+        <a href="https://www.instagram.com/jerickgm/" class="flex items-center bg-transparent rounded">
+            <div class="flex hover:bg-green dark:hover:bg-jpurple text-foreground font-semibold hover:border-transparent rounded py-2 px-3">
+                <Icon name="mdi:instagram" size={25}/>
+                <p class="text-lg text-text mx-2">@jerickgm89</p>
+            </div>
+        </a>
+    </button>
+    
 </div>
