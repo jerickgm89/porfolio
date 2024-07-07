@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Portada from '../components/Portada.astro';
+import {Portada} from '../components/Portada';
 import Banner from '../components/Banner.astro';
 import Card from '../components/Card.astro';
 import SubTitle from '../components/SubTitle.astro';
@@ -12,7 +12,7 @@ import SocialNetworks from '../components/SocialNetworks.astro';
 
 <Layout title="JErickDev">
 	<main class="flex flex-col max-w-[375px] sm:max-w-lg lg:max-w-2xl mx-auto space-y-4 transition-all ease-in-out">
-		<Portada />
+		<Portada client:load/>
 		<Banner />
 		<Card />
 		<SubTitle subtitle="Acerca de mi" >
@@ -31,6 +31,7 @@ import SocialNetworks from '../components/SocialNetworks.astro';
 </Layout>
 
 <style is:global>
+	/* Reset CSS */
 	* {
 		box-sizing: border-box;
 		position: relative;

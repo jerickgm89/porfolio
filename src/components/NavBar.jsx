@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect} from 'react'
 import {
   Navbar, 
   NavbarBrand, 
@@ -19,11 +19,15 @@ export const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isDay, setIsDay] = useState(true)
     const [theme, setTheme] = useState("dark");
+
     
     const handleDarkMode = () => {
+      const newTheme = theme === 'dark' ? 'light' : 'dark'
       setIsDay(!isDay)
-      setTheme(theme === 'light' ? 'dark' : 'light')
-      
+      setTheme(newTheme)
+      localStorage.setItem('theme', newTheme)
+
+      window.dispatchEvent(new Event('themeChanged'))
     }
 
      useEffect(() => {
