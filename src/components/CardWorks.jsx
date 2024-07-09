@@ -2,7 +2,8 @@ import {
     Card,
     CardHeader,
     CardBody,
-    CardFooter
+    CardFooter,
+    Image
 } from "@nextui-org/react"
 
 export const CardWorks = ({title, image, description}) => {
@@ -14,7 +15,7 @@ export const CardWorks = ({title, image, description}) => {
                     <p className="text-xl font-bold">{title}</p>
                 </CardHeader>
                 <CardBody className="overflow-visible py-2 items-center">
-                    <img
+                    <Image
                     alt="logo de proyecto"
                     className="object-cover rounded-xl"
                     src={image}

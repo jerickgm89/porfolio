@@ -4,7 +4,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-import { ViewTransitions } from 'astro:transitions';
 import {NavBar} from '../components/NavBar';
 import Footer from '../components/Footer.astro';
 import 'animate.css';
@@ -20,7 +19,6 @@ import {Portada} from '../components/Portada';
 		<link rel="icon" type="image/svg+xml" href="./logoJErickDevWhite.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    <ViewTransitions />
 	</head>
 	<body>
 		<NavBar client:load />
