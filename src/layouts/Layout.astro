@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import { ViewTransitions } from 'astro:transitions';
 import {NavBar} from '../components/NavBar';
 import Footer from '../components/Footer.astro';
 import 'animate.css';
@@ -19,11 +20,12 @@ import {Portada} from '../components/Portada';
 		<link rel="icon" type="image/svg+xml" href="./logoJErickDevWhite.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+    <ViewTransitions />
 	</head>
 	<body>
 		<NavBar client:load />
     <main class="flex flex-col max-w-[375px] sm:max-w-lg lg:max-w-2xl mx-auto mb-3 space-y-4" >
-      <Portada client:load/>
+      <Portada client:load data-astro-prefetch="load"/>
 		  <slot />
     </main>
     <Footer />

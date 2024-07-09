@@ -60,7 +60,7 @@ export const NavBar = () => {
         <Link href='/'>
           <NavbarBrand>
             <Image
-              src="./logoJErickDev.png"
+              src="/logoJErickDev.png"
               alt="JErickDev"
               width={40}
               height={40}
@@ -74,7 +74,7 @@ export const NavBar = () => {
         <Link href='/'>
           <NavbarBrand>
             <Image
-              src="./logoJErickDev.png"
+              src="/logoJErickDev.png"
               alt="JErickDev"
               width={40}
               height={40}
