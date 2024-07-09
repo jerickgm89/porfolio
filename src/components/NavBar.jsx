@@ -70,7 +70,7 @@ export const NavBar = () => {
         </Link>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-10 transition-all ease-in-out" justify="center">
+      <NavbarContent className="hidden sm:flex gap-10" justify="center">
         <Link href='/'>
           <NavbarBrand>
             <Image
