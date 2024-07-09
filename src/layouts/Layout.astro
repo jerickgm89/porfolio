@@ -25,7 +25,7 @@ import {Portada} from '../components/Portada';
 	<body>
 		<NavBar client:load />
     <main class="flex flex-col max-w-[375px] sm:max-w-lg lg:max-w-2xl mx-auto mb-3 space-y-4" >
-      <Portada client:load data-astro-prefetch="load"/>
+      <Portada client:load/>
 		  <slot />
     </main>
     <Footer />
