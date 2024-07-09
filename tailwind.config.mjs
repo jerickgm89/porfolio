@@ -25,6 +25,7 @@ export default {
 						sapphire: "#74c7ec",
 						green: '#a6e3a1',
 						overlay1: '#7f849c',
+						jyellow: '#F9E2AF'
 					}
 				},
 				dark: {

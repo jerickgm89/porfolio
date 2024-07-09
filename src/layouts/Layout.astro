@@ -9,6 +9,7 @@ import {NavBar} from '../components/NavBar';
 import Footer from '../components/Footer.astro';
 import 'animate.css';
 import {Portada} from '../components/Portada';
+import ThemeDark from '../components/ThemeDark.astro';
 ---
 
 <!doctype html>
@@ -20,7 +21,8 @@ import {Portada} from '../components/Portada';
 		<link rel="icon" type="image/svg+xml" href="./logoJErickDevWhite.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    <ViewTransitions />
+    	<ViewTransitions />
+		<ThemeDark />
 	</head>
 	<body>
 		<NavBar client:load />
@@ -57,22 +59,5 @@ import {Portada} from '../components/Portada';
 
 </style>
 
-<script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  })();
 
-  if (theme === "light") {
-    document.documentElement.classList.remove("dark");
-  } else {
-    document.documentElement.classList.add("dark");
-  }
-  window.localStorage.setItem("theme", theme);
-</script>
 

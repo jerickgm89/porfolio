@@ -18,8 +18,13 @@ import { Icon } from '@iconify/react'
 export const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isDay, setIsDay] = useState(true)
-    const [theme, setTheme] = useState("dark");
+    const [theme, setTheme] = useState();
 
+    useEffect(() => {
+        const storedTheme = localStorage.getItem('theme');
+        setIsDay(storedTheme !== 'dark');
+        setTheme(storedTheme || 'dark');
+    }, []);
     
     const handleDarkMode = () => {
       const newTheme = theme === 'dark' ? 'light' : 'dark'
@@ -30,13 +35,15 @@ export const NavBar = () => {
       window.dispatchEvent(new Event('themeChanged'))
     }
 
-     useEffect(() => {
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-      localStorage.setItem("theme", theme);
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            if (theme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+            localStorage.setItem("theme", theme);
+        }
     }, [theme]);
     
     const menuItems = [
@@ -112,7 +119,7 @@ export const NavBar = () => {
           <Button 
             isIconOnly
             aria-label={isDay ? 'light': 'dark'} 
-            className='bg-jpurple dark:bg-jyellow'
+            className='bg-jyellow dark:bg-jpurple'
             radius="large"
             onClick={handleDarkMode}
           >
@@ -120,7 +127,7 @@ export const NavBar = () => {
               isDay ? (
                 <SunIcon 
                   width={30}
-                  className="text-background animate__animated animate__fadeInUp"
+                  className="text-foreground animate__animated animate__fadeInUp"
                 />
               ) : (
                 <MoonIcon 
