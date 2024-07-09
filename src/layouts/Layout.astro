@@ -4,28 +4,58 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
+import { ViewTransitions } from 'astro:transitions';
 import {NavBar} from '../components/NavBar';
 import Footer from '../components/Footer.astro';
 import 'animate.css';
+import {Portada} from '../components/Portada';
 ---
 
 <!doctype html>
-<html lang="en" class="dark transition-all ease-in-out">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="About Me JErickDev" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="./logoJErickDevWhite.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+    <ViewTransitions />
 	</head>
 	<body>
 		<NavBar client:load />
+    <main class="flex flex-col max-w-[375px] sm:max-w-lg lg:max-w-2xl mx-auto mb-3 space-y-4" >
+      <Portada client:load data-astro-prefetch="load"/>
 		  <slot />
+    </main>
     <Footer />
 	</body>
 </html>
+
+<style is:global>
+  :root {
+    --animate-duration: 700ms;
+  }
+	/* Reset CSS */
+	* {
+		box-sizing: border-box;
+		position: relative;
+		min-width: 0;
+	}
+
+	body {
+		min-height: 100dvh;
+	}
+
+	h1, h2, h3, h4 {
+		text-wrap: balance;
+	}
+
+	p {
+		text-wrap: pretty;
+	}
+
+</style>
 
 <script is:inline>
   const theme = (() => {

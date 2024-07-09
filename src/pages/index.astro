@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import {Portada} from '../components/Portada';
 import Banner from '../components/Banner.astro';
 import Card from '../components/Card.astro';
 import SubTitle from '../components/SubTitle.astro';
@@ -9,10 +8,8 @@ import Tecnologias from '../components/ListTechnologies.astro';
 import ILove from '../components/ILove.astro';
 import SocialNetworks from '../components/SocialNetworks.astro';
 ---
-
 <Layout title="JErickDev">
-	<main class="flex flex-col max-w-[375px] sm:max-w-lg lg:max-w-2xl mx-auto space-y-4 transition-all ease-in-out">
-		<Portada client:load/>
+	<div class="animate__animated animate__slideInUp">
 		<Banner />
 		<Card />
 		<SubTitle subtitle="Acerca de mi" >
@@ -27,28 +24,5 @@ import SocialNetworks from '../components/SocialNetworks.astro';
 		<SubTitle subtitle="Encu&eacute;ntrame">
 			<SocialNetworks />
 		</SubTitle>
-	</main>
+	</div>
 </Layout>
-
-<style is:global>
-	/* Reset CSS */
-	* {
-		box-sizing: border-box;
-		position: relative;
-		min-width: 0;
-	}
-
-	body {
-		min-height: 100dvh;
-	}
-
-	h1, h2, h3, h4 {
-		text-wrap: balance;
-	}
-
-	p {
-		text-wrap: pretty;
-	}
-</style>
-
-

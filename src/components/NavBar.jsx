@@ -40,7 +40,8 @@ export const NavBar = () => {
     }, [theme]);
     
     const menuItems = [
-        {text: "Proyectos", href: "#"},
+        {text: "Acerca de mi", href: "/"},
+        {text: "Proyectos", href: "/proyects"},
         {text:"Blog", href: "#"},
         {text: "GitHub", href: "https://github.com/jerickgm89"},
     ]
@@ -49,7 +50,6 @@ export const NavBar = () => {
     <Navbar
       isBordered
       isMenuOpen={isMenuOpen}
-      className='transition-all ease-in-out'
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="sm:hidden" justify="start">
@@ -57,30 +57,34 @@ export const NavBar = () => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
-        <NavbarBrand>
-          <Image
-            src="./logoJErickDev.png"
-            alt="JErickDev"
-            width={40}
-            height={40}
-          />
-          <p className="font-bold dark:text-jblue px-1">JErick<span className='text-foreground dark:text-jpurple'>Dev</span></p>
-        </NavbarBrand>
+        <Link href='/'>
+          <NavbarBrand>
+            <Image
+              src="./logoJErickDev.png"
+              alt="JErickDev"
+              width={40}
+              height={40}
+            />
+            <p className="font-bold dark:text-jblue px-1">JErick<span className='text-foreground dark:text-jpurple'>Dev</span></p>
+          </NavbarBrand>
+        </Link>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-10 transition-all ease-in-out" justify="center">
-        <NavbarBrand>
-          <Image
-            src="./logoJErickDev.png"
-            alt="JErickDev"
-            width={40}
-            height={40}
-            
-          />
-          <p className="font-bold text-jblue px-1 text-lg">JErick<span className='text-jpurple font-bold'>Dev</span></p>
-        </NavbarBrand>
+        <Link href='/'>
+          <NavbarBrand>
+            <Image
+              src="./logoJErickDev.png"
+              alt="JErickDev"
+              width={40}
+              height={40}
+              
+            />
+            <p className="font-bold text-jblue px-1 text-lg">JErick<span className='text-jpurple font-bold'>Dev</span></p>
+          </NavbarBrand>
+        </Link>
         <NavbarItem>
-          <Link className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4" href="#">
+          <Link className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4" href="/proyects">
             Proyectos
           </Link>
         </NavbarItem>
