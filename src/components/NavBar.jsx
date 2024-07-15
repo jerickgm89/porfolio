@@ -32,7 +32,7 @@ export const NavBar = () => {
       setTheme(newTheme)
       localStorage.setItem('theme', newTheme)
 
-      window.dispatchEvent(new Event('themeChanged'))
+      window.dispatchEvent(new Event('themeChanged'), {detail: newTheme})
     }
 
     useEffect(() => {
@@ -127,7 +127,8 @@ export const NavBar = () => {
               isDay ? (
                 <SunIcon 
                   width={30}
-                  className="text-foreground animate__animated animate__fadeInUp"
+                  className="text-foreground 
+                  animate__animated animate__fadeInUp"
                 />
               ) : (
                 <MoonIcon 
