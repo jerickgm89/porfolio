@@ -21,13 +21,12 @@ import ThemeDark from '../components/ThemeDark.astro';
 		<link rel="icon" type="image/svg+xml" href="./logoJErickDevWhite.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    	<ViewTransitions />
 		<ThemeDark />
 	</head>
 	<body>
 		<NavBar client:load />
     <main class="flex flex-col max-w-[375px] sm:max-w-lg lg:max-w-2xl mx-auto mb-3 space-y-4" >
-      <Portada client:load data-astro-prefetch="load"/>
+      <Portada client:load/>
 		  <slot />
     </main>
     <Footer />
@@ -35,9 +34,6 @@ import ThemeDark from '../components/ThemeDark.astro';
 </html>
 
 <style is:global>
-  :root {
-    --animate-duration: 800ms;
-  }
 	/* Reset CSS */
 	* {
 		box-sizing: border-box;
