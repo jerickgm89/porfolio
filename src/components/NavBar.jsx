@@ -17,7 +17,7 @@ import { Icon } from "@iconify/react";
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDay, setIsDay] = useState(true);
-  const [theme, setTheme] = useState();
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -30,17 +30,17 @@ export const NavBar = () => {
     setIsDay(!isDay);
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
+
+    window.dispatchEvent(new Event("themeChanged"));
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-      localStorage.setItem("theme", theme);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const menuItems = [
