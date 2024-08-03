@@ -19,9 +19,9 @@ import ThemeDark from '../components/ThemeDark.astro';
 		<meta charset="UTF-8" />
 		<meta name="description" content="About Me JErickDev" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="./logoJErickDevWhite.png" />
+    <link rel="icon" type="image/svg+xml" href="/src/image/logoJErickDevWhite.png" />
 		<meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#4385f5" />
+    <meta name="theme-color" content="#6e53e5" />
 		<title>{title}</title>
 		<ThemeDark />
     <ViewTransitions />
@@ -30,7 +30,7 @@ import ThemeDark from '../components/ThemeDark.astro';
     <NavBar client:load/>
 		<main class="flex flex-col max-w-[375px] sm:max-w-lg lg:max-w-2xl mx-auto mb-3 space-y-4">
       <Portada client:load/>
-      <div transition:animate="fade">
+      <div >
         <slot />
       </div>
 		</main>

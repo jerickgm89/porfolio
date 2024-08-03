@@ -7,7 +7,9 @@ export const Portada = () => {
   const updateImageSrc = () => {
     const theme = localStorage.getItem("theme");
     const src =
-      theme === "dark" ? "/logoArtJErick.png" : "/logoArtJErickLight.png";
+      theme === "dark"
+        ? "/src/image/logoArtJErick.png"
+        : "/src/image/logoArtJErickLight.png";
     setImageSrc(src);
     setAnimation("");
     setTimeout(() => {

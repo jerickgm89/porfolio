@@ -18,6 +18,12 @@ export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDay, setIsDay] = useState(true);
   const [theme, setTheme] = useState("dark");
+  const isActive = (href) => {
+    if (typeof window !== "undefined") {
+      return window.location.pathname === href;
+    }
+    return false;
+  };
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -44,10 +50,8 @@ export const NavBar = () => {
   }, [theme]);
 
   const menuItems = [
-    { text: "Acerca de mi", href: "/" },
     { text: "Proyectos", href: "/proyects" },
     { text: "Blog", href: "#" },
-    { text: "GitHub", href: "https://github.com/jerickgm89" },
   ];
   return (
     <>
@@ -55,6 +59,22 @@ export const NavBar = () => {
         isBordered
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
+        classNames={{
+          item: [
+            "flex",
+            "relative",
+            "h-full",
+            "items-center",
+            "data-[active=true]:after:content-['']",
+            "data-[active=true]:after:absolute",
+            "data-[active=true]:after:bottom-0",
+            "data-[active=true]:after:left-0",
+            "data-[active=true]:after:right-0",
+            "data-[active=true]:after:h-[2px]",
+            "data-[active=true]:after:rounded-[2px]",
+            "data-[active=true]:after:bg-primary",
+          ],
+        }}
       >
         <NavbarContent className="sm:hidden" justify="start">
           <NavbarMenuToggle
@@ -66,7 +86,7 @@ export const NavBar = () => {
           <Link href="/">
             <NavbarBrand>
               <Image
-                src="/logoJErickDev.png"
+                src="/src/image/logoJErickDev.png"
                 alt="JErickDev"
                 width={40}
                 height={40}
@@ -83,7 +103,7 @@ export const NavBar = () => {
           <Link href="/">
             <NavbarBrand>
               <Image
-                src="/logoJErickDev.png"
+                src="src/image/logoJErickDev.png"
                 alt="JErickDev"
                 width={40}
                 height={40}
@@ -93,23 +113,16 @@ export const NavBar = () => {
               </p>
             </NavbarBrand>
           </Link>
-          <NavbarItem>
-            <Link
-              className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4"
-              href="/proyects"
-            >
-              Proyectos
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link
-              color="jblue"
-              className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4"
-              href="#"
-            >
-              Blog
-            </Link>
-          </NavbarItem>
+          {menuItems.map((item, index) => (
+            <NavbarItem key={index}>
+              <Link
+                className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4 "
+                href={item.href}
+              >
+                {item.text}
+              </Link>
+            </NavbarItem>
+          ))}
           <NavbarItem>
             <Link href="https://github.com/jerickgm89/porfolio">
               <Button
