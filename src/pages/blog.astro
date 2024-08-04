@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro'
+import SubTitle from '../components/SubTitle.astro'
+import {CardWorks} from '../components/CardWorks'
+import roadMapFrontPhoto from '../image/roadMapFront.png'
+---
+
+<Layout title='Blog JErickDev'>
+  <SubTitle subtitle="Roadmap - frontEnd" style='bold' color='text'/>
+  <div>
+    <CardWorks
+      title="Internet"
+      image={roadMapFrontPhoto.src}
+      description="Una guia teorica - resumen del Internet del roadmap de frontEnd"
+      url="blogs/internet"
+      client:load
+    />
+
+  </div>
+</Layout>

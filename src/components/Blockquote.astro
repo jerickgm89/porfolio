@@ -1,0 +1,8 @@
+---
+const props = Astro.props;
+---
+
+<blockquote {...props} class="bg-banner rounded-lg flex flex-row text-xl p-4 my-3  items-center font-mono">
+  <span class=" mr-3 text-jblue">|</span>
+  <slot/>
+</blockquote>

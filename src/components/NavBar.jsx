@@ -52,7 +52,7 @@ export const NavBar = () => {
 
   const menuItems = [
     { text: "Proyectos", href: "/proyects" },
-    { text: "Blog", href: "#" },
+    { text: "Blog", href: "/blog" },
   ];
   return (
     <>
