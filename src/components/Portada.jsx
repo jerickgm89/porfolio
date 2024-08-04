@@ -7,9 +7,7 @@ export const Portada = () => {
   const updateImageSrc = () => {
     const theme = localStorage.getItem("theme");
     const src =
-      theme === "dark"
-        ? "/src/image/logoArtJErick.png"
-        : "/src/image/logoArtJErickLight.png";
+      theme === "dark" ? "/logoArtJErick.png" : "/logoArtJErickLight.png";
     setImageSrc(src);
     setAnimation("");
     setTimeout(() => {
@@ -29,6 +27,7 @@ export const Portada = () => {
   return (
     <div className={animation}>
       <Image src={imageSrc} width="960" alt="Portada" />
+      {/* <img src={imageSrc} width="960" alt="Portada" /> */}
     </div>
   );
 };

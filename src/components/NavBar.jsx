@@ -13,6 +13,7 @@ import {
 } from "@nextui-org/react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { Icon } from "@iconify/react";
+import logoNav from "../image/logoJErickDev.png";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,12 +86,7 @@ export const NavBar = () => {
         <NavbarContent className="sm:hidden pr-3" justify="center">
           <Link href="/">
             <NavbarBrand>
-              <Image
-                src="/src/image/logoJErickDev.png"
-                alt="JErickDev"
-                width={40}
-                height={40}
-              />
+              <img src={logoNav} alt="JErickDev" width={40} height={40} />
               <p className="font-bold dark:text-jblue px-1">
                 JErick
                 <span className="text-foreground dark:text-jpurple">Dev</span>
@@ -102,12 +98,7 @@ export const NavBar = () => {
         <NavbarContent className="hidden sm:flex gap-10" justify="center">
           <Link href="/">
             <NavbarBrand>
-              <Image
-                src="src/image/logoJErickDev.png"
-                alt="JErickDev"
-                width={40}
-                height={40}
-              />
+              <Image src={logoNav.src} alt="JErickDev" width={40} height={40} />
               <p className="font-bold text-jblue px-1 text-lg">
                 JErick<span className="text-jpurple font-bold">Dev</span>
               </p>
