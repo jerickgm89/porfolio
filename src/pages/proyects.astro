@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import SubTitle from '../components/SubTitle.astro';
 import {CardWorks} from '../components/CardWorks';
+import ecommerceTechPhoto from '../image/ecommerceTech.jpeg'
+import qtilePhoto from '../image/qtile.jpg'
 ---
 
 <Layout title="JErickDev">
@@ -9,7 +11,7 @@ import {CardWorks} from '../components/CardWorks';
 		<SubTitle subtitle='Proyectos'>
 		<CardWorks
 			title="EcommerceTech"
-        image="/src/image/ecommerceTech.jpeg"
+        image={ecommerceTechPhoto.src}
 			description="Una aplicaci&oacute;n web de comercio electr&oacute;nico desarrollada con React y PostgreSQL"
       url="/proyects/ecommerceTech"
 			client:load
@@ -18,7 +20,7 @@ import {CardWorks} from '../components/CardWorks';
 		<SubTitle subtitle='DotFiles'>
 		<CardWorks
 			title="Qtile Config"
-        image="/src/image/qtile.jpg"
+        image={qtilePhoto.src}
 			description="Configuraci&oacute;n del Window Manager - Qtile para mi entorno de trabajo"
       url="https://github.com/jerickgm89/DocFilesQtile"
 			client:load
