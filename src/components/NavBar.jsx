@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { navigate } from "astro:transitions/client";
 import {
   Navbar,
   NavbarBrand,
@@ -19,13 +20,13 @@ export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDay, setIsDay] = useState(true);
   const [theme, setTheme] = useState("dark");
-  const isActive = (href) => {
-    if (typeof window !== "undefined") {
-      return window.location.pathname === href;
-    }
-    return false;
-  };
-
+  // const isActive = (href) => {
+  //   if (typeof window !== "undefined") {
+  //     return window.location.pathname === href;
+  //   }
+  //   return false;
+  // };
+  //
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     setIsDay(storedTheme !== "dark");
@@ -86,8 +87,14 @@ export const NavBar = () => {
         <NavbarContent className="sm:hidden pr-3" justify="center">
           <Link href="/">
             <NavbarBrand>
-              <img src={logoNav} alt="JErickDev" width={40} height={40} />
-              <p className="font-bold dark:text-jblue px-1">
+              <Image
+                src={logoNav.src}
+                alt="JErickDev"
+                width={40}
+                height={40}
+                className="animate__animated animate__shakeX"
+              />
+              <p className="font-bold dark:text-jblue px-1 text-lg ">
                 JErick
                 <span className="text-foreground dark:text-jpurple">Dev</span>
               </p>
@@ -97,8 +104,14 @@ export const NavBar = () => {
 
         <NavbarContent className="hidden sm:flex gap-10" justify="center">
           <Link href="/">
-            <NavbarBrand>
-              <Image src={logoNav.src} alt="JErickDev" width={40} height={40} />
+            <NavbarBrand className="animate__animated animate__pulse">
+              <Image
+                src={logoNav.src}
+                alt="JErickDev"
+                width={40}
+                height={40}
+                className="animate__animated animate__swing"
+              />
               <p className="font-bold text-jblue px-1 text-lg">
                 JErick<span className="text-jpurple font-bold">Dev</span>
               </p>
@@ -108,6 +121,10 @@ export const NavBar = () => {
             <NavbarItem key={index}>
               <Link
                 className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4 "
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(item.href);
+                }}
                 href={item.href}
               >
                 {item.text}
@@ -156,7 +173,7 @@ export const NavBar = () => {
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.text}-${index}`}>
               <Link
-                className="text-foreground font-bold w-full"
+                className="text-jblue font-bold w-full"
                 href={item.href}
                 size="lg"
               >
@@ -164,6 +181,15 @@ export const NavBar = () => {
               </Link>
             </NavbarMenuItem>
           ))}
+          <NavbarMenuItem>
+            <Link
+              className="text-jblue font-bold w-full"
+              href="https://github.com/jerickgm89/porfolio"
+              size="lg"
+            >
+              Codigo
+            </Link>
+          </NavbarMenuItem>
         </NavbarMenu>
       </Navbar>
     </>

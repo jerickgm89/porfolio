@@ -1,12 +1,6 @@
 ---
-interface Props {
-  text: string;
-}
-
-const {text} = Astro.props;
+const props = Astro.props
 ---
-<div>
-  <p class="font-mono text-xl">
-    {text}
-  </p>
-</div>
+<p {...props} class="font-mono text-xl">
+<slot />
+</p>

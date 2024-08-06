@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Image } from "@nextui-org/react";
+import { navigate } from "astro:transitions/client";
 
 export const Portada = () => {
   const [imageSrc, setImageSrc] = useState("");

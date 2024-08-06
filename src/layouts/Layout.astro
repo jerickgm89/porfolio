@@ -6,11 +6,11 @@ interface Props {
 const { title } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
 import {NavBar} from '../components/NavBar';
-import NavBarAstro from '../components/NavBar.astro';
+import NavBarCSS from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro';
 import 'animate.css';
 import {Portada} from '../components/Portada';
-import ThemeDark from '../components/ThemeDark.astro';
+// import ThemeDark from '../components/ThemeDark.astro';
 ---
 
 <!doctype html>
@@ -23,14 +23,14 @@ import ThemeDark from '../components/ThemeDark.astro';
 		<meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#6e53e5" />
 		<title>{title}</title>
-		<ThemeDark />
     <ViewTransitions />
 	</head>
-	<body transition:animate="fade">
+	<body >
     <NavBar client:load/>
+    <!-- <NavBarCSS /> -->
 		<main class="flex flex-col max-w-[375px] sm:max-w-lg lg:max-w-3xl mx-auto mb-3 space-y-4">
-      <Portada client:load/>
-      <div >
+      <Portada client:load />
+      <div>
         <slot />
       </div>
 		</main>
@@ -60,6 +60,18 @@ import ThemeDark from '../components/ThemeDark.astro';
 
 </style>
 
+<script is:inline>
+document.addEventListener('astro:page-load', () =>{
+    const theme = localStorage.getItem('theme');
+   
+    if (
+      theme === 'dark' ||
+      (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    }
 
+})
+</script>
 
 
