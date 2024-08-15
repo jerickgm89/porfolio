@@ -1,14 +1,13 @@
 ---
 interface Props {
-    subtitle: string;
-    style : string;
-    color : string;
+  subtitle: string;
+  center: boolean;
 }
 
-const { subtitle, style, color} = Astro.props;
+const { subtitle, center=false } = Astro.props;
 ---
 <div>
-  <p class=`text-2xl underline underline-offset-8 decoration-4 decoration-banner text-${color} my-4 font-${style}`>
+  <p class={`text-2xl underline underline-offset-8 decoration-4 decoration-banner my-4 text-jblue ${center ? 'text-center' : ''}`}>
         {subtitle}
     </p>
 </div>

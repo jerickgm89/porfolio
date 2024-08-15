@@ -19,14 +19,8 @@ import logoNav from "../image/logoJErickDev.png";
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDay, setIsDay] = useState(true);
-  const [theme, setTheme] = useState("dark");
-  // const isActive = (href) => {
-  //   if (typeof window !== "undefined") {
-  //     return window.location.pathname === href;
-  //   }
-  //   return false;
-  // };
-  //
+  const [theme, setTheme] = useState("");
+
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     setIsDay(storedTheme !== "dark");
@@ -55,6 +49,7 @@ export const NavBar = () => {
     { text: "Proyectos", href: "/proyects" },
     { text: "Blog", href: "/blog" },
   ];
+
   return (
     <>
       <Navbar
@@ -87,13 +82,7 @@ export const NavBar = () => {
         <NavbarContent className="sm:hidden pr-3" justify="center">
           <Link href="/">
             <NavbarBrand>
-              <Image
-                src={logoNav.src}
-                alt="JErickDev"
-                width={40}
-                height={40}
-                className="animate__animated animate__shakeX"
-              />
+              <Image src={logoNav.src} alt="JErickDev" width={40} height={40} />
               <p className="font-bold dark:text-jblue px-1 text-lg ">
                 JErick
                 <span className="text-foreground dark:text-jpurple">Dev</span>
@@ -104,33 +93,24 @@ export const NavBar = () => {
 
         <NavbarContent className="hidden sm:flex gap-10" justify="center">
           <Link href="/">
-            <NavbarBrand className="animate__animated animate__pulse">
-              <Image
-                src={logoNav.src}
-                alt="JErickDev"
-                width={40}
-                height={40}
-                className="animate__animated animate__swing"
-              />
+            <NavbarBrand>
+              <Image src={logoNav.src} alt="JErickDev" width={40} height={40} />
               <p className="font-bold text-jblue px-1 text-lg">
                 JErick<span className="text-jpurple font-bold">Dev</span>
               </p>
             </NavbarBrand>
           </Link>
           {menuItems.map((item, index) => (
-            <NavbarItem key={index}>
+            <NavbarItem key={`${item.text}-${index}`}>
               <Link
-                className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-4 "
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(item.href);
-                }}
+                className="text-lg text-foreground font-medium dark:text-jblue hover:underline underline-offset-8 "
                 href={item.href}
               >
                 {item.text}
               </Link>
             </NavbarItem>
           ))}
+
           <NavbarItem>
             <Link href="https://github.com/jerickgm89/porfolio">
               <Button
@@ -155,15 +135,9 @@ export const NavBar = () => {
               onClick={handleDarkMode}
             >
               {isDay ? (
-                <MoonIcon
-                  width={30}
-                  className="text-jsubtext animate__animated animate__fadeInDown"
-                />
+                <MoonIcon width={30} className="text-jsubtext " />
               ) : (
-                <SunIcon
-                  width={30}
-                  className="text-background animate__animated animate__fadeInUp"
-                />
+                <SunIcon width={30} className="text-background" />
               )}
             </Button>
           </NavbarItem>
